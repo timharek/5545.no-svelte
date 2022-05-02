@@ -1,29 +1,9 @@
 <script lang="ts">
+  import { formatNumber, getFormattedDate } from '../ts/main';
+
   import type { YrWeather } from 'src/types/YrWeather';
   export let weatherData: YrWeather;
   let currentItems = 13;
-
-  function getFormattedDate(time: string) {
-    const date = new Date(time);
-
-    return new Intl.DateTimeFormat('no', {
-      month: 'short',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric'
-    }).format(date);
-  }
-
-  function formatNumber(number: string | number, format: string | undefined = undefined) {
-    if (format) {
-      return new Intl.NumberFormat('no', {
-        style: 'unit',
-        unit: format,
-        maximumFractionDigits: 0
-      }).format(Number(number));
-    }
-    return new Intl.NumberFormat('no', { maximumFractionDigits: 0 }).format(Number(number));
-  }
 </script>
 
 <div class="w-full overflow-x-auto">
