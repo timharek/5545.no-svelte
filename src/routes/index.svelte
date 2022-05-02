@@ -48,6 +48,17 @@
 
     return new Intl.DateTimeFormat('no', options).format(date);
   }
+
+  function formatNumber(number: string | number, format: string | undefined = undefined) {
+    if (format) {
+      return new Intl.NumberFormat('no', {
+        style: 'unit',
+        unit: format,
+        maximumFractionDigits: 0
+      }).format(Number(number));
+    }
+    return new Intl.NumberFormat('no', { maximumFractionDigits: 0 }).format(Number(number));
+  }
 </script>
 
 <main class="mx-auto max-w-5xl px-4">
@@ -80,16 +91,31 @@
             {#each result.properties.timeseries as item}
               <tr class="even:bg-gray-200 hover:bg-gray-100">
                 <td class="py-2 px-1">{getFormattedDate(item.time)}</td>
+                <td class="py-2 px-1">
+                  {#if item.data.next_1_hours}
+                    <img
+                      src="/weathericons/{item.data.next_1_hours.summary.symbol_code}.svg"
+                      alt=""
+                      class="w-10"
+                    />
+                  {:else}
+                    N/A
+                  {/if}
+                </td>
                 <td class="py-2 px-1"
-                  >{item.data.next_1_hours ? item.data.next_1_hours.summary.symbol_code : 'N/A'}</td
+                  >{formatNumber(item.data.instant.details.air_temperature, 'celsius')}</td
                 >
-                <td class="py-2 px-1">{item.data.instant.details.air_temperature}</td>
                 <td class="py-2 px-1"
                   >{item.data.next_1_hours
-                    ? item.data.next_1_hours.details.precipitation_amount
+                    ? formatNumber(
+                        item.data.next_1_hours.details.precipitation_amount,
+                        'millimeter'
+                      )
                     : 'N/A'}</td
                 >
-                <td class="py-2 px-1">{item.data.instant.details.wind_speed}</td>
+                <td class="py-2 px-1"
+                  >{formatNumber(item.data.instant.details.wind_speed, 'meter-per-second')}</td
+                >
               </tr>
             {/each}
           </tbody>
