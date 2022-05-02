@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { YrWeather } from 'src/types/YrWeather';
   export let weatherData: YrWeather;
+  let currentItems = 13;
 
   function getFormattedDate(time: string) {
     const date = new Date(time);
@@ -37,7 +38,7 @@
       </tr>
     </thead>
     <tbody>
-      {#each weatherData.properties.timeseries as item}
+      {#each weatherData.properties.timeseries.slice(1, currentItems) as item}
         <tr class="even:bg-gray-200 hover:bg-gray-100">
           <td class="py-2 px-1">{getFormattedDate(item.time)}</td>
           <td class="py-2 px-1">
@@ -66,4 +67,8 @@
       {/each}
     </tbody>
   </table>
+  <button class="bg-gray-200 p-4" on:click={() => (currentItems += 12)}
+    >Last inn 12 timer til</button
+  >
+  <button class="bg-gray-200 p-4" on:click={() => (currentItems -= 12)}>Fjern 12 timer</button>
 </div>
