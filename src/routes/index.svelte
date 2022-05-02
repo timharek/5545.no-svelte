@@ -1,5 +1,6 @@
 <script lang="ts">
   import Table from '../components/Table.svelte';
+  import Now from '../components/Now.svelte';
   import type { YrWeather } from 'src/types/YrWeather';
 
   let LOCATION = { lat: 0, lng: 0 };
@@ -52,6 +53,7 @@
     {#await getYr(String(LOCATION.lat), String(LOCATION.lng))}
       <div class="">laster inner...</div>
     {:then result}
+      <Now now={weatherData.properties.timeseries[0]} />
       <Table {weatherData} />
     {/await}
   {/if}
