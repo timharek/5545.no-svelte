@@ -38,8 +38,7 @@
   }
 </script>
 
-<main class="mx-auto max-w-5xl px-4">
-  <h1 class="text-green-500">5545.no</h1>
+<main class="container">
   <button class="p-2 border-2 border-black bg-slate-300 rounded-md" on:click={getLocation}
     >Hent lokasjon</button
   >
