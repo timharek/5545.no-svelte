@@ -3,6 +3,7 @@
   import Now from '../components/Now.svelte';
   import type { YrWeather } from 'src/types/YrWeather';
   import type { NominatimReverse } from 'src/types/Nominatim';
+  import { locationName } from '../ts/stores';
 
   let LOCATION = { name: 'Vormedal', lat: 59.355091, lng: 5.323378 }; // Vormedal coordinates
 
@@ -14,6 +15,7 @@
           lat: location.coords.latitude,
           lng: location.coords.longitude
         };
+        locationName.set(LOCATION.name);
       });
       console.log('Retrived location', LOCATION);
     } else {
@@ -68,10 +70,6 @@
   {#if LOCATION}
     <div class="my-4">
       <dl>
-        <div class="flex gap-1">
-          <dt>Sted:</dt>
-          <dd>{LOCATION.name}</dd>
-        </div>
         <div class="flex gap-1">
           <dt>Breddegrad:</dt>
           <dd>{LOCATION.lat}</dd>

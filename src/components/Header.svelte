@@ -1,5 +1,14 @@
 <script lang="ts">
+  import type { Writable } from 'svelte/store';
+
+  export let title: Writable<string>;
   export let message: string;
+
+  let TITLE: string;
+
+  title.subscribe((value) => {
+    TITLE = value;
+  });
 </script>
 
 {#if message}
@@ -8,5 +17,5 @@
   </div>
 {/if}
 <header class="container my-8">
-  <h1 class="text-6xl text-center">Været på Vormedal</h1>
+  <h1 class="text-6xl text-center">Været {TITLE}</h1>
 </header>
