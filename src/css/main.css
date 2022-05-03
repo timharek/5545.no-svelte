@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 .container {
-    @apply mx-auto max-w-5xl px-4;
+  @apply mx-auto max-w-5xl px-4;
 }
 
 .button {
-    @apply p-2 border-2 border-black bg-blue-300 hover:bg-blue-200 rounded-md;
+  @apply p-2 border-2 border-black bg-blue-300 hover:bg-blue-200 rounded-md;
 }
 
 .link {
-    @apply font-semibold border-b-2 border-black hover:bg-blue-200;
+  @apply font-semibold border-b-2 border-black hover:bg-blue-200;
 }
