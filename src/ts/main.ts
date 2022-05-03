@@ -1,5 +1,5 @@
 import { formatDistanceToNow, isToday } from 'date-fns';
-import { nb } from 'date-fns/locale';
+import nb from 'date-fns/locale/nb/index.js';
 
 /**
  * If date is today this returns date in natural language,
