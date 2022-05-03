@@ -33,7 +33,7 @@ export function formatNumber(number: string | number, format: string | undefined
     return new Intl.NumberFormat('no', {
       style: 'unit',
       unit: format,
-      maximumFractionDigits: 0
+      maximumFractionDigits: Number(number) < 1 && format == 'millimeter' ? 1 : 0
     }).format(Number(number));
   }
   return new Intl.NumberFormat('no', { maximumFractionDigits: 0 }).format(Number(number));
