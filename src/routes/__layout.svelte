@@ -7,6 +7,6 @@
 <head>
   <title>5545.no</title>
 </head>
-<Header />
+<Header message="🦺 Under utvikling 🦺" />
 
 <slot />
