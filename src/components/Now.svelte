@@ -7,10 +7,14 @@
 </script>
 
 <div
-  class="w-full bg-gray-50 p-4 mb-4 border border-gray-800 rounded-md flex justify-between items-center text-4xl"
+  class="w-full bg-gray-50 p-4 mb-4 border border-gray-800 rounded-md flex flex-wrap gap-4 justify-between items-center text-4xl"
 >
-  <div class="">
-    <img src="/weathericons/{now.data.next_1_hours.summary.symbol_code}.svg" alt="" class="w-24" />
+  <div class="w-full sm:w-auto">
+    <img
+      src="/weathericons/{now.data.next_1_hours.summary.symbol_code}.svg"
+      alt=""
+      class="w-24 mx-auto"
+    />
   </div>
   <div class="text-red-500">
     {formatNumber(now.data.instant.details.air_temperature, 'celsius')}

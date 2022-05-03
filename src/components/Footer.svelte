@@ -1,5 +1,5 @@
 <footer class="mt-8 py-8 bg-blue-300 border">
-  <div class="container flex justify-between">
+  <div class="container flex flex-wrap justify-between gap-4">
     <p class="">
       Laget med <a class="link" href="https://kit.svelte.dev/">SvelteKit</a> og
       <a class="link" href="https://api.met.no/weatherapi/locationforecast/2.0/documentation#/"
