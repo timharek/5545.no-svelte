@@ -47,8 +47,8 @@
       {/each}
     </tbody>
   </table>
-  <button class="bg-gray-200 p-4" on:click={() => (currentItems += 12)}
-    >Last inn 12 timer til</button
-  >
-  <button class="bg-gray-200 p-4" on:click={() => (currentItems -= 12)}>Fjern 12 timer</button>
+  <div class="mt-4 flex gap-4">
+    <button class="button" on:click={() => (currentItems += 12)}>Last inn 12 timer til</button>
+    <button class="button" on:click={() => (currentItems -= 12)}>Fjern 12 timer</button>
+  </div>
 </div>

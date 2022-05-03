@@ -39,9 +39,7 @@
 </script>
 
 <main class="container">
-  <button class="p-2 border-2 border-black bg-slate-300 rounded-md" on:click={getLocation}
-    >Hent lokasjon</button
-  >
+  <button class="button" on:click={getLocation}>Hent lokasjon</button>
   {#if LOCATION}
     <div class="">
       Lokasjon:
