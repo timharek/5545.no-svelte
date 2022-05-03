@@ -3,7 +3,7 @@
   import Now from '../components/Now.svelte';
   import type { YrWeather } from 'src/types/YrWeather';
 
-  let LOCATION = { lat: 0, lng: 0 };
+  let LOCATION = { lat: 59.355091, lng: 5.323378 }; // Vormedal coordinates
   let weatherData: YrWeather;
 
   function getLocation() {
@@ -39,13 +39,19 @@
 </script>
 
 <main class="container">
-  <button class="button" on:click={getLocation}>Hent lokasjon</button>
+  <button class="button" on:click={getLocation}>Hent lokasjon fra din nettleser</button>
   {#if LOCATION}
-    <div class="">
-      Lokasjon:
-      <br />
-      lat: {LOCATION.lat}
-      lng: {LOCATION.lng}
+    <div class="my-4">
+      <dl>
+        <div class="flex gap-1">
+          <dt>Breddegrad:</dt>
+          <dd>{LOCATION.lat}</dd>
+        </div>
+        <div class="flex gap-1">
+          <dt>Lengdegrad:</dt>
+          <dd>{LOCATION.lng}</dd>
+        </div>
+      </dl>
     </div>
     {#await getYr(String(LOCATION.lat), String(LOCATION.lng))}
       <div class="">laster inner...</div>
