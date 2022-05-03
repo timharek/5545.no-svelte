@@ -1,8 +1,10 @@
 # 5545.no-svelte
 
-    > Work in progress
+> Work in progress
 
-A Svelte-version of the original [5545.no]()
+A Svelte-version of the original [5545.no](https://github.com/timharek/5545.no).
+
+Uses [Yr.no (Meteorologisk institutt) weather API][met] and [OpenStreetMap's Nominatim API][osm] for reverse coordinates lookup.
 
 ## Developing
 
@@ -23,3 +25,6 @@ npm run build
 
 npm run preview # for production preview
 ```
+
+[met]: https://api.met.no/weatherapi/locationforecast/2.0/documentation
+[osm]: https://nominatim.org/
