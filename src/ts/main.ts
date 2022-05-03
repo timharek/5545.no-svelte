@@ -1,12 +1,22 @@
+import { formatDistanceToNow, isToday } from "date-fns";
+import { nb } from 'date-fns/locale'
+
 export function getFormattedDate(time: string) {
 const date = new Date(time);
 
-return new Intl.DateTimeFormat('no', {
-    month: 'short',
-    day: 'numeric',
+
+const formattedDate = new Intl.DateTimeFormat('no', {
+    weekday: 'long',
     hour: 'numeric',
     minute: 'numeric'
 }).format(date);
+    // IsToday show hours
+    // isTomorrow or later, weekday and time
+    if (isToday(date)) {
+        return formatDistanceToNow(date, {locale: nb, addSuffix: true})
+    }
+
+    return formattedDate;
 }
 
 export function formatNumber(number: string | number, format: string | undefined = undefined) {
