@@ -1,6 +1,6 @@
 # 5545.no-svelte
 
-> Work in progress
+A work in progress.
 
 A Svelte-version of the original [5545.no](https://github.com/timharek/5545.no).
 
