@@ -49,10 +49,10 @@
   </table>
   <div class="mt-8 flex gap-4">
     {#if currentItems > 13}
-      <button class="button" on:click={() => (currentItems -= 12)}>Fjern 12 timer</button>
+      <button class="button red" on:click={() => (currentItems -= 12)}> Fjern 12 timer </button>
     {/if}
     {#if currentItems < weatherData.properties.timeseries.length - 1}
-      <button class="button" on:click={() => (currentItems += 12)}>Legg til 12 timer</button>
+      <button class="button blue" on:click={() => (currentItems += 12)}> Neste 12 timer </button>
     {/if}
   </div>
 </div>

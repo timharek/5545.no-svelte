@@ -66,7 +66,10 @@
 </script>
 
 <main class="container">
-  <button class="button" on:click={getLocation}>Hent lokasjon fra din nettleser</button>
+  <button class="button green flex gap-2" on:click={getLocation}>
+    <span class="">📍</span>
+    Hent lokasjon fra din nettleser
+  </button>
   {#if LOCATION}
     <div class="my-4">
       <dl>
