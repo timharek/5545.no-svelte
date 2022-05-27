@@ -48,7 +48,11 @@
     </tbody>
   </table>
   <div class="mt-8 flex gap-4">
-    <button class="button" on:click={() => (currentItems += 12)}>Last inn 12 timer til</button>
-    <button class="button" on:click={() => (currentItems -= 12)}>Fjern 12 timer</button>
+    {#if currentItems > 13}
+      <button class="button" on:click={() => (currentItems -= 12)}>Fjern 12 timer</button>
+    {/if}
+    {#if currentItems < weatherData.properties.timeseries.length - 1}
+      <button class="button" on:click={() => (currentItems += 12)}>Legg til 12 timer</button>
+    {/if}
   </div>
 </div>
