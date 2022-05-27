@@ -1,12 +1,11 @@
-import { formatDistanceToNow, isToday } from 'date-fns';
-import nb from 'date-fns/locale/nb/index.js';
+import { isToday } from 'date-fns';
 
 /**
  * If date is today this returns date in natural language,
  * if the date is later than today it returns weekday with the time.
  * 
  * Example:
- * - om omtrent en time
+ * - i dag kl. 12:00
  * - mandag kl. 12:00
  * 
  * @param time Datetime from Yr
@@ -22,7 +21,7 @@ export function getFormattedDate(time: string) {
   }).format(date);
 
   if (isToday(date)) {
-    return formatDistanceToNow(date, { locale: nb, addSuffix: true });
+    return (formattedDate).replace(`${date.toLocaleString('default', {weekday: 'long'})}`, 'i dag')
   }
 
   return formattedDate;
